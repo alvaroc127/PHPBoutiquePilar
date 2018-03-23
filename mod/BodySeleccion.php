@@ -33,7 +33,7 @@ function print_Galer(ControladorCatalogo $con){
 
 
 function printPro(Producto $pro){
-    echo "<a href=\"index.html\" > <img  src=\".".$pro->getImage()."\" alt=\"".$pro->getNamePro()."\" > </a>";
+    echo "<a href=\"ProductoSeleccion.html?var1=2\" > <img  src=\".".$pro->getImage()."\" alt=\"".$pro->getNamePro()."\" > </a>";
 }
 
 

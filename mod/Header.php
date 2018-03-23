@@ -9,7 +9,7 @@ function checkVar(){
          echo "<link rel=\"stylesheet\" href=\"css/BodySelecciionCSS.css\">\n";
          break;
      case 2:
-         echo "<link rel=\"stylesheet\" href=\"css/BodySelecciionCSS.css\">\n";
+         echo "<link rel=\"stylesheet\" href=\"css/BodySeleccionProduCSS.css\">\n";
          
          break;
      
@@ -49,6 +49,7 @@ function checkVar(){
  // crear los productos despues de selecionar la subcategoria llamandolos del join de la vista con la tabla productos.
  
  function print_toProd(Producto $p, Catalogo $c){
+     //adicionar el parametro para solo producto.
     echo "<li><a  class=\"classSelectPr\"  data-catref=\"".$c->getNumRef()."\" data-refp=\"".$p->getRefere()."\" href=\"ProductosCatalogo.html?var1=1\">".$p->getNamePro()."</a></li>\n";
  }
  //enviar por parametros la referencia del producto para buscarlo
