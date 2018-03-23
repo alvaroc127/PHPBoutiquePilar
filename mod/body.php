@@ -1,9 +1,9 @@
-<section id="BloquSeg">
+<!--<section id="BloquSeg">
 
 </section>
 <section id="BloquTer">
 
-</section>
+</section>-->
 
 <section id="BloquPrincipal">
 <article>

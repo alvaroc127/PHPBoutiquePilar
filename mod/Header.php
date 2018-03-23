@@ -75,8 +75,10 @@ function checkVar(){
  <meta name="subject" content="ropa femenina"/>
  <meta name ="description" content="sitio web de la marca pilar romero"/>
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
  <link rel="stylesheet" href="css/HeaderStyleCSS.css">
   <script src="js/JQuery3.1.js"></script>
+  <script  src="bootstrap/js/bootstrap.js"></script>
   <script src="js/ScriptPresentacion.js"></script>
  
  <?php
@@ -90,7 +92,7 @@ function checkVar(){
  ?>
 </head>
 <body>
- <div id="agrupado">
+ <div class="container">
 	<header id="cabezera">
 		<h1 align="center">Pilar Romero</h1>
 	</header>

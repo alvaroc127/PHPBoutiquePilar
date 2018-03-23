@@ -1,13 +1,3 @@
-#BloquSeg{
-	width:10%;
-	
-	
-}
-#BloquTer{
-	width:10%;
-	margin-left:90%;
-}
-
 #imagenFondo{
 	width:100%;
 }
@@ -15,10 +5,8 @@
 
 
 #BloquPrincipal{
-	width: 80%;
 	background:#d5d8dc; 
-	margin-left: 10%;
-	margin-right:10%;
+	
 }
 
 
