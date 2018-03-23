@@ -1,14 +1,19 @@
 <?php
 
-
+//represent the  category/subcateogry
+include_once ("inc/SingletonFactoryProducto.php");
 class Catalogo {
     
     //date of public cat type date
-    private $datePublic;
+    private $datePublic; //fecha creacion del usuario
     //name of cat type string
     private $name;
-    //array of products 
-    private $produts;
+    //key refCatlogo
+    private $numRef;
+    //array of psubcat
+    private $subCat;
+    //array of products
+    private $products=NULL;
     
     public function __construct() {
         
@@ -22,29 +27,60 @@ class Catalogo {
         $this->datePublic=$datePublic;
     }
     
-    public function setProduct($products){
-        $this->produts=$products;
+    public function setSubcat(array $subCat){
+        $this->subCat=$subCat;
     }
     
     public function setname($name){
         $this->name=$name;
     }
-    
-    public function getName(){
+    function getNumRef() {
+        return $this->numRef;
+    }
+
+    function setNumRef($numRef) {
+        $this->numRef = $numRef;
+    }
+
+        public function getName(){
         return $this->name;
     }
     
-    public function getProdu(){
-        return $this->produts;
+    public function getSubCat(){
+        return $this->subCat;
     }
     
     public function getDatepublic(){
         return $this->datePublic;
     }
     
-    public function managerDate(){
-        
-        
+    public function addSubcat($subcat,$ref){
+        $this->subCat[]=array( 
+            "nombSubcat"=>$subcat,
+            "ref"=>$ref);
+    }
+    
+    public function  addProdu($nombrePr, $numRef){
+       $prosd= SingletonFactoryProducto::createProduc($nombrePr, $numRef);
+       $this->products[]=$prosd;
+    }
+    
+    public function  addProdu1(Producto $producto){
+       $this->products[]=$producto;
+    }
+    
+   
+
+
+    public function setProducts(array $produc){
+        $this->products=$this->products;
+    }
+    
+    public function getProducts(){
+        return $this->products;
+    }
+    
+    public  function managerDate(){
         
     }
 

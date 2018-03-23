@@ -8,5 +8,20 @@ and open the template in the editor.
     Author     : Familia
 */
 
+#conteTabPro{
+    height: 100%;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #808B90;
+}
 
 
+
+
+#ProduCatalogs  tr td  a > img{
+    height: 155px;
+    width: 213px;
+    padding: 10px;
+    margin: 10px;
+    
+}

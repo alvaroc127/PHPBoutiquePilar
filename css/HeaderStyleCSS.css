@@ -8,3 +8,98 @@ and open the template in the editor.
     Author     : Familia
 */
 
+header,section,fooster,nav,hgroup,article,figure,figcaption,aside{
+	display: block;
+}
+html{
+	min-height:100%;
+	position: relative; 
+}
+body{
+	text-align: center;
+}
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+h1{
+	font-family: cambria;
+	font-size:30 px;
+	color:#F8F9F9;
+}
+
+#agrupado{
+	margin: 0px;
+	text-align: left;
+}
+
+
+#cabezera{
+	background:#808B90;
+	padding: 20px;
+}
+
+#navbar{
+	background:#808B90;
+	padding: 5px 15px;	
+}
+
+
+#navbar ul{
+	text-align: center;
+}
+
+
+#navbar li{
+display: inline-block;
+padding: 5px;
+    
+}
+
+#navbar #submen ul li ul li {
+    display: block;
+    list-style: none;
+    padding: 5px;
+}
+
+.classListC{
+    
+    
+    
+}
+
+#submen{
+    background: #808B90;
+}
+
+
+
+
+
+
+
+#navbar #submen{
+    display: none;
+    position: absolute;
+}
+
+
+
+
+#navbar li > a{
+	font-family: cambria;
+	font-size: 18px;
+	color:#F9F9F9;
+}
+
+#navbar li:hover{
+	background-color:#d5d8dc;
+}
+
+
+#navbar ul li:hover > #submen{
+    display: block;
+}
+
+

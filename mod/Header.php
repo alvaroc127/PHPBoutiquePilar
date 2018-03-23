@@ -1,3 +1,69 @@
+<?php
+include_once ("inc/Controlador/ControladorCatalogo.php");
+
+function checkVar(){
+  if(isset($_GET["var1"])){
+ $ind=$_GET["var1"];
+ switch ($ind){
+     case 1:
+         echo "<link rel=\"stylesheet\" href=\"css/BodySelecciionCSS.css\">\n";
+         break;
+     case 2:
+         echo "<link rel=\"stylesheet\" href=\"css/BodySelecciionCSS.css\">\n";
+         
+         break;
+     
+     case 3:
+         
+         break;
+ }
+ }else{
+     echo "<link rel=\"stylesheet\" href=\"css/BodyPrincipal.css\">";
+ }
+}
+
+
+ 
+ function inPrint(Catalogo $c){
+     if(empty($c->getName())==false){
+        echo "<li class=\"classListC\" >".$c->getName();
+         if(empty($c->getSubCat())==false){
+             echo "<ul class=\"classsubc\">\n";
+             foreach ($c->getSubCat() as $val){
+                echo "<li><a id=\"".$val["ref"]."\"  data-catref=\"".$c->getNumRef()."\" data-subref=\"".$val["ref"]."\" href=\"ProductosCatalogo.html?var1=1&refsub=".$val["ref"]."&catref=".$c->getNumRef()."\" >".$val["nombSubcat"]."</a></li>\n";
+             }
+             echo "</ul>\n";
+         }else{
+             if(empty($c->getProducts())==false){
+                echo "<ul>\n";
+                foreach ($c->getProducts() as $prod){
+                    print_toProd($prod,$c);
+                }
+                echo "</ul>\n";
+             }
+         }
+         echo "</li>\n";
+     }
+     
+ }
+ // crear los productos despues de selecionar la subcategoria llamandolos del join de la vista con la tabla productos.
+ 
+ function print_toProd(Producto $p, Catalogo $c){
+    echo "<li><a  class=\"classSelectPr\"  data-catref=\"".$c->getNumRef()."\" data-refp=\"".$p->getRefere()."\" href=\"ProductosCatalogo.html?var1=1\">".$p->getNamePro()."</a></li>\n";
+ }
+ //enviar por parametros la referencia del producto para buscarlo
+ 
+ function print_toCatg(array $catArr){
+     foreach ($catArr as $c){
+         inPrint($c);
+         }
+ }
+ 
+ 
+ 
+
+
+?>
 <html>
 <head>
     <title>
@@ -9,33 +75,18 @@
  <meta name="subject" content="ropa femenina"/>
  <meta name ="description" content="sitio web de la marca pilar romero"/>
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <link rel="stylesheet" href="css/PruebaEstilosPrincipal.css">
+ <link rel="stylesheet" href="css/HeaderStyleCSS.css">
+  <script src="js/JQuery3.1.js"></script>
+  <script src="js/ScriptPresentacion.js"></script>
+ 
  <?php
- if(isset($_GET["var1"])){
- $ind=$_GET["var1"];
- switch ($ind){
-     case 1:
-         echo "<link rel=\"stylesheet\" href=\"css/BodySelecciionCSS.css\"> ";
-         break;
-     case 2:
-         echo "<link rel=\"stylesheet\" href=\"css/BodySelecciionCSS.css\">  ";
-         
-         break;
-     
-     case 3:
-         
-         break;
- }
- }
+ checkVar();
  ?>
- <!--
-                header linkea a cabeza, pero tambien tiene footer y body
- debe linkear al footer y como saber a que body linkeo
-                -->
+ <link rel="stylesheet" href="css/FooterStyleCSS.css">
  <?php
- include_once ("inc/Controlador/ControladorCatalogo.php");
  $cont=new ControladorCatalogo();
- $arr=$cont->getCat();
+ $cont->getCat();
+ $cont->divCat();
  ?>
 </head>
 <body>
@@ -49,15 +100,11 @@
 		<li><a  id="desplieg" href="Prueba2.html">Catalogo</a>
                     <dl id="submen">
                         <dt> seleccion&eacute; el catalogo</dt>
-                         <table>
-                        <?php
-                         foreach ($arr as $c){
-                             echo "<tr>\n";
-                             echo "<td><a href=\"ProductosCatalogo.html?var1=1\">".$c["nombreCatalogo"]."</a></td>\n";
-                            echo "</tr>\n";
-                         }
-                        ?>
-                    </table> 
+                        <ul>
+                            <?php
+                             print_toCatg($cont->getArrayCAT());
+                            ?>
+                        </ul>
                     </dl>
                     </li>
                 <!--

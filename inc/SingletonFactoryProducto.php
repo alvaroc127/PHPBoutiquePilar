@@ -1,5 +1,6 @@
 <?php
 
+include_once ("inc/Producto.php");
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,7 +9,7 @@
 
 class SingletonFactoryProducto{
     
-      protected static $produc=NULL;
+      protected static $produc;
     /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -25,55 +26,24 @@ class SingletonFactoryProducto{
     }
     
    
-    public static function  createProduc($typeClass){
-        switch ($typeClass){
-             case strcmp($typeClass, "Zapato")==0:
-                return new Zapato();
-            break;
-        
-            case strcmp($typeClass,"FlorDeco")==0:
-                return new FlorDeco();
-            break;
-        
-             default:
-                 if(!empty($typeClass)){
-                     return SingletonFactoryPrendad::createPrend($typeClass);
-                 }
-                 
-                 break;
-            
-        }
+    public static function  createProduc($nomb,$ref){
+        $prod=new Producto();
+        $prod->setRefere($ref);
+        $prod->setNamePro($nomb);
+        return $prod;
     }
 
-    public static function getInstance($typeClass){
+    public  static  function getInstance(){
     if(SingletonFactoryProducto::$produc==NULL){
-        switch ($typeClass){
-            
-            case strcmp($typeClass, "Zapato")==0:
-                SingletonFactoryProducto::$produc=new Zapato();
-            break;
-        
-        
-            case strcmp($typeClass,"FlorDeco")==0:
-                SingletonFactoryProducto::$produc=new FlorDeco();
-                
-            break;
-            
-             default:
-                 if(!empty($typeClass)){
-                     SingletonFactoryProducto::$produc= SingletonFactoryPrendad::getInstance($typeClass);
-                 }
-                 break;
-        }
+        SingletonFactoryProducto::$produc=new Producto();
+        echo "se creo producto<p>";
         }else{
-            return SingletonFactoryProducto::$produc;
+            SingletonFactoryProducto::$produc=NULL;
+            echo "NO creo producto<p>";
         }
-    }
-    
-    
-    
+        return SingletonFactoryProducto::$produc;
+        }
+
+
 }
-
-
-
 ?>

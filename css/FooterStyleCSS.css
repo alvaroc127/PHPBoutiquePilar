@@ -8,3 +8,52 @@ and open the template in the editor.
     Author     : Familia
 */
 
+
+#pieP{
+	bottom: 0px;
+	clear: both;
+	background:#F8F9F9;
+	position:absolute;
+	width: 100%;
+	padding: 5px;
+}
+
+#pieP li > a{
+	font-family: cambria;
+	font-size: 13px;
+	color:#638237;
+}
+#pieP li > a:hover{
+	background-color: #d5d8dc;
+}
+
+#separador{
+	size:4px;
+	color:#808B90;
+	width:100%;
+}
+
+
+#linker{
+	float:left;
+	padding:10px;
+	margin-left:5px;
+}
+#linker ul{
+	list-style-type:none;
+}
+
+#mrInfo{
+	float:right;
+}
+#boxPie{
+	width:100%;
+	display: inline-block;	
+}
+
+#boxPie p{
+	font-family:cambria;
+	font-size: 12px;
+	color:#638237;
+	
+}

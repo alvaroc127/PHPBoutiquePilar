@@ -10,10 +10,10 @@ class conecxionBD{
    
     function conectarBD(){
         $conString="host=". Config::$config["db"]["host"].' '."port=".Config::$config["db"]["port"].' '."dbname=".Config::$config["db"]["database"].' '."user=".Config::$config["db"]["userName"].' '."password=".Config::$config["db"]["pass"];
-        var_dump($conString);
+        //var_dump($conString);
         $conector = pg_connect($conString);
         if($conector){
-            echo 'todo quedo listo conceccion base dedatos'."<br>";
+           // echo 'todo quedo listo conceccion base dedatos'."<br>";
         }else{
             echo 'No se pudo conectar'.pg_last_error(),"<br>";
         }

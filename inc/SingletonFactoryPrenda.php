@@ -10,12 +10,16 @@ class SingletonFactoryPrendad{
  * and open the template in the editor.
  */
 
-    public function __construct(){
+    private function __construct(){
         
         
     }
 
     public function __destruct() {
+        
+    }
+    
+    private function __clone() {
         
     }
     
