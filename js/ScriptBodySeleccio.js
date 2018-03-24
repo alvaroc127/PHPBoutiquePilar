@@ -6,6 +6,14 @@
 $(document).ready(function (){ //esto solo funciona a body seleccion si es un producto debe ser redireccionado a otro php
 var nom=localStorage.getItem("nomSub");
  $("#title_1").html(nom);
+ $("#ProduCatalogs tr td").on('click',function (){
+    var r1=$("a",this).data("imgi");
+            localStorage.setItem("dirimg",r1);
+            console.log(r1);
+            });
+ 
 });
+
+
 
 

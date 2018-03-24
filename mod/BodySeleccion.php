@@ -33,7 +33,10 @@ function print_Galer(ControladorCatalogo $con){
 
 
 function printPro(Producto $pro){
-    echo "<a href=\"ProductoSeleccion.html?var1=2\" > <img  src=\".".$pro->getImage()."\" alt=\"".$pro->getNamePro()."\" > </a>";
+    $pro->setCostUni(0);
+    $pro->setPrecioVenta(0);
+    echo "<a  data-imgi=\"".$pro->getImage()."\" href=\"ProductoSeleccion.html?var1=2&proname=".$pro->getNamePro()."&proref=".$pro->getRefere()."&promat=".$pro->getMater()."&protalla=".$pro->getMeasure()."\"> <img  src=\".".$pro->getImage()."\" alt=\"".$pro->getNamePro()."\" > </a>";
+    
 }
 
 
@@ -42,13 +45,13 @@ function printPro(Producto $pro){
 <div id="principalBody">
     <h2 id="title_1"> </h2>
     <section id="conteTabPro">
-        <table id="ProduCatalogs">
+        <table id="ProduCatalogs" class="table-hover">
             <?php
             $cont=new ControladorCatalogo();
             loadGet($cont);
             print_Galer($cont);
             ?>
-            
+
             </table>
      </section>
 </div>
