@@ -93,13 +93,13 @@ function checkVar(){
  ?>
 </head>
 <body>
- <div class="container">
+ <div class="container-fluid">
 	<header id="cabezera">
 		<h1 align="center">Pilar Romero</h1>
 	</header>
 	<nav id="navbar">
 		<ul>
-		<li><a href="ProductosCatalogo.html">cont&aacute;tenos</a></li>
+		<li><a href="#">cont&aacute;tenos</a></li>
 		<li><a  id="desplieg" href="Prueba2.html">Catalogo</a>
                     <dl id="submen">
                         <dt> seleccion&eacute; el catalogo</dt>

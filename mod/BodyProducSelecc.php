@@ -6,11 +6,11 @@
  * and open the template in the editor.
  */
 ?>
-<div>
-    <section>
+<div class="row">
+    <section class="col-md-6">
         <h1>aqui va una imagen</h1>
     </section>
-    <section>
+    <section class="col-md-6">
         <dl>
          <dt>Producto</dt>
           <dl><!--llamdo a php con el nombre del producto--></dl>  
