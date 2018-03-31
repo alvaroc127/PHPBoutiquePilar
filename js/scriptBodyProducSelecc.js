@@ -7,5 +7,4 @@
 $(document).ready(function () {
     var dir=localStorage.getItem("dirimg");
     $("#producSelecc2").attr("src","."+dir);
-    
 });

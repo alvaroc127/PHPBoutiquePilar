@@ -4,26 +4,47 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
-
+$prod=new Producto();
+function loadProduc(){
+    if(isset($_GET["proref"])){
+        $pro= SingletonFactoryProducto::createProduc($_GET["proref"],$_GET["proname"]);
+        $pro->setMeasure($_GET["protalla"]);
+        $pro->setMater($_GET["promat"]);
+    }
+    return $pro;
+}
+$pro=loadProduc();
 ?>
 <script src="js/scriptBodyProducSelecc.js"> </script>
 <div class="row">
     <section id="colunimg" class="col-md-6">
         <figure>
-            <img id="producSelecc2" src="" alt="" class="img-thumbnail">
-            <figcaption></figcaption>
+            <img id="producSelecc2" src="" alt="imgennproducto" class="img-thumbnail">
+            <figcaption><?php
+            $pro->getNamePro();
+            ?></figcaption>
         </figure>
-        <h1>aqui va una imagen</h1>
     </section>
     <section id="colundet" class="col-md-6">
-        <dl>
+        <dl class="list-inline">
          <dt>Producto</dt>
-          <dl><!--llamdo a php con el nombre del producto--></dl>  
+          <dd><?php
+          echo $pro->getNamePro();
+          ?> </dd>  
           <dt>Referencia</dt>
-          <dl><!--llamdo a php con el nombre del producto--></dl>
-          
+          <dd><?php
+          echo $pro->getRefere();
+          ?></dd>
+          <dt>Materiales</dt>
+          <dd><?php
+          echo $pro->getMater();
+          ?></dd>
+          <dt>Medidas o tallas</dt>
+          <dd>
+          <?php
+          echo $pro->getMeasure();
+          ?>
+          </dd>
         </dl>
     </section>
 </div>
