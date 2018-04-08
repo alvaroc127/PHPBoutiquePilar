@@ -25,7 +25,7 @@ class CatalogoTab{
          $conec = new conecxionBD();
          $mysql=$conec->conectarBD();
          $result=$mysql->query(self::SQLCONSCAT);
-         $this->arrayConsu=$result->fetch_all(); 
+         $this->arrayConsu=$result->fetch_all(MYSQLI_ASSOC);
          $conec->offDB($mysql);
          return $this->arrayConsu;
     }
@@ -38,9 +38,13 @@ class CatalogoTab{
         $conec=new conecxionBD();
         $mysql=$conec->conectarBD();
         $result=$mysql->prepare(self::SQLCONSCATESP);
-        $result->bind_param("ss",$key,$key2);
+        if(!$result=$mysql->prepare(self::SQLCONSCATESP)){
+            
+            echo "error praparando la sentencia".$mysql->errno."en".$mysql->error;
+        }
+        $result->bind_param('ss',$key,$key2);
         if($result->execute()){
-        $this->arrayConsu=$result->get_result();
+        $this->arrayConsu=$result->get_result()->fetch_all(MYSQLI_ASSOC);
         }
         $cat=new Catalogo();
         $cat->setNumRef($key);
@@ -58,7 +62,8 @@ class CatalogoTab{
             $cat->addProdu1($prodduc);
         }
         }
-        $conec->offDB($conector);
+        $result->close();
+        $conec->offDB($mysql);
         return $cat;
     }
     

@@ -10,8 +10,8 @@
 </div>
 <div id="mrInfo">
 <figure>
-<img id="imgFacebook" src="img/Facebook.png" alt="facebooklink">
-<img id="imgTwiter" src="img/Twiter.png" alt="twiterlink">
+<img id="imgFacebook" src="img/facebook.png" alt="facebooklink">
+<img id="imgTwiter" src="img/twiter.png" alt="twiterlink">
 <img id="imginstgram" src="img/instagram.png" alt="instagramlink">
 </figure>
 <p>Direcci&oacute;n: Cr 24 n 9-20</p>
