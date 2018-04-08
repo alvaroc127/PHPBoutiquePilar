@@ -9,19 +9,17 @@ class conecxionBD{
     
    
     function conectarBD(){
-        $conString="host=". Config::$config["db"]["host"].' '."port=".Config::$config["db"]["port"].' '."dbname=".Config::$config["db"]["database"].' '."user=".Config::$config["db"]["userName"].' '."password=".Config::$config["db"]["pass"];
-        //var_dump($conString);
-        $conector = pg_connect($conString);
-        if($conector){
+        $mysql=new mysqli(Config::$config["db"]["host"], Config::$config["db"]["userName"],Config::$config["db"]["pass"],Config::$config["db"]["database"], Config::$config["db"]["port"]);
+        if(!$mysql->connect_errno){
            // echo 'todo quedo listo conceccion base dedatos'."<br>";
         }else{
-            echo 'No se pudo conectar'.pg_last_error(),"<br>";
+            echo 'No se pudo conectar'.!$mysql->connect_error,"<br>";
         }
-        return $conector;
+        return $mysql;
     }
     
-    function offDB($conector){
-        pg_close($conector);
+    function offDB(mysqli $mysql){
+        $mysql->close();
     }
     
     

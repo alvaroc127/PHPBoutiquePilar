@@ -9,10 +9,10 @@ class Config{
     
     public static $config=array(
     "db"=>array(
-        "userName"=>"postgres",
-        "port"=>"5432",
+        "userName"=>"respaldo",
+        "port"=>"3306",
         "database"=>"PilarDB",
-        "pass"=>"0000",
+        "pass"=>"312_Felipe",
         "host"=>"localhost"
     ),
     "urls"=>"http://localhost"

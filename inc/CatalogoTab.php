@@ -8,7 +8,7 @@ class CatalogoTab{
     
     
     const SQLCONSCAT="SELECT * FROM nombCat;";
-    const SQLCONSCATESP="SELECT * FROM cat_pro_sub where id_categoria=$1 and id_subcategoria=$2;"; /* consulta reservada para un catalogo (subcate o categoria en especial)*/
+    const SQLCONSCATESP="SELECT * FROM cat_pro_sub where id_categoria=? and id_subcategoria=?;"; /* consulta reservada para un catalogo (subcate o categoria en especial)*/
     private $arrayConsu;
     
     
@@ -23,10 +23,10 @@ class CatalogoTab{
             
     function SQLconsultCat(){
          $conec = new conecxionBD();
-         $conector=$conec->conectarBD();
-         $resul=pg_query(self::SQLCONSCAT);
-         $this->arrayConsu= pg_fetch_all($resul);
-         $conec->offDB($conector);
+         $mysql=$conec->conectarBD();
+         $result=$mysql->query(self::SQLCONSCAT);
+         $this->arrayConsu=$result->fetch_all(); 
+         $conec->offDB($mysql);
          return $this->arrayConsu;
     }
     
@@ -36,10 +36,12 @@ class CatalogoTab{
     
     function SQLExpsi($key,$key2){
         $conec=new conecxionBD();
-        $conector=$conec->conectarBD();
-        $result=pg_query_params($conector,self::SQLCONSCATESP,array($key,$key2));
-        //$result=pg_query(self::SQLCONSCATESP.$key."';");
-        $this->arrayConsu= pg_fetch_all($result);
+        $mysql=$conec->conectarBD();
+        $result=$mysql->prepare(self::SQLCONSCATESP);
+        $result->bind_param("ss",$key,$key2);
+        if($result->execute()){
+        $this->arrayConsu=$result->get_result();
+        }
         $cat=new Catalogo();
         $cat->setNumRef($key);
         $cat->setSubcat(array());
