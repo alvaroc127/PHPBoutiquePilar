@@ -13,8 +13,8 @@ and open the template in the editor.
 	bottom: 0px;
 	clear: both;
 	background:#F8F9F9;
-	width: 100%;
-	padding: 5px;
+	//width: 100%;
+	//padding: 5px;
 }
 
 #pieP li > a{
@@ -36,7 +36,6 @@ and open the template in the editor.
 #linker{
 	float:left;
 	padding:10px;
-	margin-left:5px;
 }
 #linker ul{
 	list-style-type:none;
@@ -45,6 +44,16 @@ and open the template in the editor.
 #mrInfo{
 	float:right;
 }
+
+#mrInfo > figure ul{
+    list-style-type: none;
+}
+
+#mrInfo figure ul > li{
+    display: inline-block;
+}
+
+
 #boxPie{
 	width:100%;
 	display: inline-block;	
