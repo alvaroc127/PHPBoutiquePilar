@@ -5,7 +5,7 @@
 <ul>
 <li><a href=""> Adminsitracion</a></li>
 <li><a href="">derechos reservados</a></li>
-<li><a href="">¿Quines Somos?</a></li>
+<li><a href="QuienesSomos.html?var1=3">¿Quines Somos?</a></li>
 </ul>
 </div>
 <div id="mrInfo" class="col-sm-auto">

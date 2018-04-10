@@ -14,6 +14,7 @@ function checkVar(){
          break;
      
      case 3:
+         echo "<link rel=\"stylesheet\" href=\"css/BodyQuienesSomos.css\">\n";
          
          break;
  }
@@ -50,7 +51,7 @@ function checkVar(){
  
  function print_toProd(Producto $p, Catalogo $c){
      //adicionar el parametro para solo producto.
-    echo "<li><a  class=\"classSelectPr\"  data-catref=\"".$c->getNumRef()."\" data-refp=\"".$p->getRefere()."\" href=\"ProductosCatalogo.html?var1=1\">".$p->getNamePro()."</a></li>\n";
+    echo "<li><a  class=\"classSelectPr\"  data-catref=\"".$c->getNumRef()."\" data-refp=\"".$p->getRefere()."\" href=\"ProductosSeleccion.html?var1=2&".$p->getRefere()."\">".$p->getNamePro()."</a></li>\n";
  }
  //enviar por parametros la referencia del producto para buscarlo
  
@@ -65,6 +66,7 @@ function checkVar(){
 
 
 ?>
+<!DOCTYPE html>
 <html>
 <head>
     <title>
@@ -114,7 +116,7 @@ function checkVar(){
                 llamada a php para traer los catalogos de la base de datos
                 se traen los catalogos de la base de datos
                 -->
-		<li><a href="Prueba2.html">¿Quines Somos?</a></li>
+		<li><a href="QuienesSomos.html?var1=3">¿Quines Somos?</a></li>
 		</ul>
 </nav>
 
