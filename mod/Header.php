@@ -17,6 +17,11 @@ function checkVar(){
          echo "<link rel=\"stylesheet\" href=\"css/BodyQuienesSomos.css\">\n";
          
          break;
+     
+     case 4:
+         echo "<link rel=\"stylesheet\" href=\"css/BodyLoginCSS.css\">\n";
+         
+         break;
  }
  }else{
      echo "<link rel=\"stylesheet\" href=\"css/BodyPrincipal.css\">";

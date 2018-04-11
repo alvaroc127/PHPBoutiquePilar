@@ -3,7 +3,7 @@
 <div id="boxPie" class="row">
 <div id="linker" class="col-sm-4">
 <ul>
-<li><a href=""> Adminsitracion</a></li>
+<li><a href="Login.html?var1=4"> Adminsitracion</a></li>
 <li><a href="">derechos reservados</a></li>
 <li><a href="QuienesSomos.html?var1=3">¿Quines Somos?</a></li>
 </ul>

@@ -1,5 +1,5 @@
 <?php
-
+include_once ("inc/EstrategiaGestion.php");
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,6 +11,7 @@ class Usuario implements EstrategiaGestion{
     private $nameeUsu;
     private $pass;
     private $estrategia;
+    private $email;
     
     public function __construct() {
         
@@ -41,8 +42,22 @@ class Usuario implements EstrategiaGestion{
     public function setPass($pass){
         $this->pass=$pass;
     }
+    
+    public function setEmail($email){
+        $this->email=$email;
+    }
 
-    public function gestionCatalogo() {
+    
+    public function getEmail(){
+        return $this->email;
+    }
+    
+    public function  getPass(){
+        return $this->pass;
+    }
+
+
+    public function gestionCatalogo(){
         
     }
 
