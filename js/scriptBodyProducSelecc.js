@@ -6,5 +6,10 @@
 
 $(document).ready(function () {
     var dir=localStorage.getItem("dirimg");
-    $("#producSelecc2").attr("src","."+dir);
+    if($("#producSelecc2").attr("src")){
+         
+    }else{
+        $("#producSelecc2").attr("src","."+dir);
+    }
+    localStorage.clear();
 });

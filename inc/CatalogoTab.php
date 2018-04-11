@@ -53,7 +53,7 @@ class CatalogoTab{
         $cat->addSubcat($this->arrayConsu[0]["nombresubcat"],$key2);
         $cat->addSubcat($this->arrayConsu[0]["nombrecate"],$key2);
         for($i=0;$i<sizeof($this->arrayConsu);$i++){
-            $prodduc=SingletonFactoryProducto::createProduc($this->arrayConsu[$i]["id_producto"],$this->arrayConsu[$i]["nombreprod"]);
+            $prodduc=SingletonFactoryProducto::createProduc($this->arrayConsu[$i]["nombreprod"],$this->arrayConsu[$i]["id_producto"]);
             $prodduc->setMater($this->arrayConsu[$i]["material"]);
             $prodduc->setPrecioVenta($this->arrayConsu[$i]["precioventa"]);
             $prodduc->setMeasure($this->arrayConsu[$i]["medida"]);

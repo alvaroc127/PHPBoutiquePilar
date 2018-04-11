@@ -75,6 +75,7 @@
                  $cata->addSubcat($this->arragCataTab[$i]["nombresubcat"],$this->arragCataTab[$i]["id_subcategoria"]);
                  $cata=$this->obtenerSubcat($i, $cata);
                 }else{
+                    $cata->addSubcat($this->arragCataTab[$i]["nombresubcat"],$this->arragCataTab[$i]["id_subcategoria"]);
                     $cata->setProducts(array());
                     $cata->addProdu($this->arragCataTab[$i]["nombreprod"],$this->arragCataTab[$i]["id_producto"]);
                     //crear los productos no completos completos cuando se llamen con el click en este momento

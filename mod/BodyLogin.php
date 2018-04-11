@@ -8,7 +8,7 @@ include_once ("inc/Controlador/ControladorUsuario.php");
             header("refresh:5;url=PanelControl.html");
         }
     }else{
-        echo "<a href=\"Login.html?var1=3\">Login</a>";
+        echo "<a href=\"Login.html?var1=4\">Login</a>";
     }  
 
 

@@ -33,7 +33,7 @@ function checkVar(){
  function inPrint(Catalogo $c){
      if(empty($c->getName())==false){
         echo "<li class=\"classListC\" >".$c->getName();
-         if(empty($c->getSubCat())==false){
+         if(strcmp($c->getSubCat()[0]["ref"],"SUB1")!=0){
              echo "<ul class=\"classsubc\">\n";
              foreach ($c->getSubCat() as $val){
                 echo "<li><a id=\"".$val["ref"]."\"  data-catref=\"".$c->getNumRef()."\" data-subref=\"".$val["ref"]."\" href=\"ProductosCatalogo.html?var1=1&refsub=".$val["ref"]."&catref=".$c->getNumRef()."\" >".$val["nombSubcat"]."</a></li>\n";
@@ -56,7 +56,7 @@ function checkVar(){
  
  function print_toProd(Producto $p, Catalogo $c){
      //adicionar el parametro para solo producto.
-    echo "<li><a  class=\"classSelectPr\"  data-catref=\"".$c->getNumRef()."\" data-refp=\"".$p->getRefere()."\" href=\"ProductosSeleccion.html?var1=2&".$p->getRefere()."\">".$p->getNamePro()."</a></li>\n";
+    echo "<li><a  class=\"classSelectPr\"     href=\"ProductoSeleccion.html?var1=2&proref1=".$p->getRefere()."&refsub=".$c->getSubCat()[0]["ref"]."&catref=".$c->getNumRef()."\">".$p->getNamePro()."</a></li>\n";
  }
  //enviar por parametros la referencia del producto para buscarlo
  

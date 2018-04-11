@@ -94,12 +94,14 @@ padding: 5px;
 	color:#F9F9F9;
 }
 
-#navbar li:hover{
+#navbar li:hover,
+#navbar li:focus{
 	background-color:#d5d8dc;
 }
 
 
-#navbar ul li:hover > #submen{
+#navbar ul li:hover > #submen,
+#navbar ul li:focus > #submen{
     display: block;
    
 }

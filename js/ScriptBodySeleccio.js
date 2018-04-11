@@ -9,7 +9,6 @@ var nom=localStorage.getItem("nomSub");
  $("#ProduCatalogs tr td").on('click',function (){
     var r1=$("a",this).data("imgi");
             localStorage.setItem("dirimg",r1);
-            console.log(r1);
             });
  
 });
