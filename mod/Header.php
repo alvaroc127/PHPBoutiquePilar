@@ -24,7 +24,7 @@ function checkVar(){
          break;
  }
  }else{
-     echo "<link rel=\"stylesheet\" href=\"css/BodyPrincipal.css\">";
+     echo "<link id=\"cssBody\" rel=\"stylesheet\" href=\"css/BodyPrincipal.css\">";
  }
 }
 
@@ -107,7 +107,7 @@ function checkVar(){
 	<nav id="navbar">
 		<ul>
 		<li><a href="#">cont&aacute;tenos</a></li>
-		<li><a  id="desplieg" href="Prueba2.html">Catalogo</a>
+		<li><a  id="desplieg" >Catalogo</a>
                     <dl id="submen">
                         <dt> seleccion&eacute; el catalogo</dt>
                         <ul>

@@ -3,12 +3,12 @@ include_once ("inc/Controlador/ControladorUsuario.php");
 
     if(isset($_POST["namepass"])){
         $cont=new ControladorUsuario();
-        $cont->consultUsua($_POST["email"],$_POST["namepass"]);
+        $cont->consultUsua($_POST["namepass"],$_POST["nameemail"]);
         if($cont->isUser()){
             header("refresh:5;url=PanelControl.html");
         }
     }else{
-        echo "<a href=\"Login.html?var1=4\">Login</a>";
+        //echo "<a href=\"Login.html?var1=4\">Login</a>";
     }  
 
 
@@ -20,7 +20,7 @@ include_once ("inc/Controlador/ControladorUsuario.php");
 
 
 <section id="formIngreo">
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>" >
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF']."?var1=4"?>" >
     <div class="form-group">
     <label  for="emailLog">Ingrese su Email</label>
         <input  type="email" class="form-control" id="emailLog" placeholder="email@dir.co" required 

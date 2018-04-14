@@ -26,13 +26,15 @@ class UsuarioTab{
         if(!$result){
             echo $mysql->errno."error en".$mysql->error;
         }else{
-            $result->bind_param('ss',$email,$key);
+            $result->bind_param('si',$email,$key);
             if($result->execute()){
                 $usu=new Usuario();
                 $this->arrUsu=$result->get_result()->fetch_all(MYSQLI_ASSOC);
+                if(!empty($this->arrUsu)){
                 $usu->setPass($this->arrUsu[0]["id_persona"]);
                 $usu->setEmail($this->arrUsu[0]["email"]);
                 $this->usuario=$usu;
+                }
             }else{
                 echo $result->errno."error en".$result->error;
             }
