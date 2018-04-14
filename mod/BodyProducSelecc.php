@@ -9,7 +9,7 @@ include_once ("inc/Controlador/ControladorCatalogo.php");
 $prod=new Producto();
 function loadProduc(){
     if(isset($_GET["proref"])){
-        $pro= SingletonFactoryProducto::createProduc($_GET["proref"],$_GET["proname"]);
+        $pro= SingletonFactoryProducto::createProduc($_GET["proname"],$_GET["proref"]);
         $pro->setMeasure($_GET["protalla"]);
         $pro->setMater($_GET["promat"]);
     }else{

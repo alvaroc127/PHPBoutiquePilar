@@ -1,18 +1,27 @@
 <?php
 include_once ("inc/Controlador/ControladorUsuario.php");
-
-    if(isset($_POST["namepass"])){
+if(!isset($_SESSION["logeado"])){
+    if(isset($_POST["namepass"])&&$_SESSION["mar"]==true){
         $cont=new ControladorUsuario();
         $cont->consultUsua($_POST["namepass"],$_POST["nameemail"]);
-        if($cont->isUser()){
-            header("refresh:5;url=PanelControl.html");
+        if($cont->isUser()&& isset($_SESSION["mar"])){
+            $_SESSION["mar"]=true;
+            $_SESSION["logeado"]=true;
+            $_SESSION["user"]=$cont->getemail();
+            $_SESSION["pass"]=$cont->getPass();
+            session_regenerate_id(true);
+            header("location:PanelControl.html");
         }
     }else{
+       if($_SESSION["mar"]!=true){
+            session_regenerate_id(true);
+            $_SESSION["mar"]=true;
+       }
         //echo "<a href=\"Login.html?var1=4\">Login</a>";
-    }  
-
-
-
+    }
+}else{
+    header("location:PanelControl.html");
+}
 
 
 ?>

@@ -7,4 +7,13 @@ and open the template in the editor.
     Created on : 12-abr-2018, 16:24:09
     Author     : felipe
 */
+#nombrePan{
+        font-family: cambria;
+	font-size: 20px;
+	color:#808B90;
+}
 
+.colPri{
+    font-family: cambria;
+    color: #808B90;
+}

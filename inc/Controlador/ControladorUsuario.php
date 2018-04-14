@@ -32,6 +32,17 @@ class ControladorUsuario{
     }
     
     
+    public function setUser($email,$pass){
+        if(isset($this->usuario)){
+       $this->usuario->setEmail($email);
+       $this->usuario->setPass($pass);
+        }else{
+            $this->usuario=new Usuario();
+            $this->usuario->setEmail($email);
+            $this->usuario->setPass($pass);
+        }
+    }
+    
     public function isUser(){
         if(!is_null($this->usuario)){
             return TRUE;

@@ -1,4 +1,6 @@
 <?php
+session_start();
+$_SESSION['mar']=true;
 include_once ("inc/Controlador/ControladorCatalogo.php");
 
 function checkVar(){
