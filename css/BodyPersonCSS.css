@@ -1,0 +1,32 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21-abr-2018, 17:48:09
+    Author     : felipe
+*/
+
+
+
+form section article label{
+    text-align: left;
+    display: inline;
+    float: left;
+}
+
+
+
+input:valid{
+    background-color: #71dd8a;
+}
+
+#creciudad:empty, #crebarrio:empty{
+    background-color: white;
+    
+}
+
+input:empty{
+    background-color: white;
+}

@@ -46,6 +46,6 @@ if(!isset($_SESSION["logeado"])){
                    name="namepass"
                    >
         </div>
-        <button type="submit" class="btn btn-primary">registrarse</button>
+        <button type="submit" class="btn btn-primary">Logearse</button>
     </form>
 </section>
