@@ -1,5 +1,8 @@
 <?php
+
+
 include_once ("inc/EstrategiaGestion.php");
+include_once ("inc/Empleado.php");
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -7,11 +10,11 @@ include_once ("inc/EstrategiaGestion.php");
  */
 class Usuario implements EstrategiaGestion{
     
-    private $name;
-    private $nameeUsu;
+    
     private $pass;
     private $estrategia;
     private $email;
+    private $empleado;
     
     public function __construct() {
         
@@ -31,13 +34,7 @@ class Usuario implements EstrategiaGestion{
         $this->estrategia = $estrategia;
     }
 
-        public function setname($name){
-        $this->name=$name;
-    }
-    
-    public function setnameUsu($nameUsu){
-        $this->nameeUsu=$nameUsu;
-    }
+        
     
     public function setPass($pass){
         $this->pass=$pass;
@@ -56,7 +53,31 @@ class Usuario implements EstrategiaGestion{
         return $this->pass;
     }
 
+    
 
+    function getPerson() {
+        return $this->empleado;
+    }
+
+    function loadPerson($arrUss ){
+       $emp =new Empleado();
+        $emp->setNombre_RazSoc($arrUss[0]["nombre_razonsocial"]);
+        $emp->setDateBirthday($arrUss[0]["fechaNacimiento"]);
+        $emp->setEdad($arrUss[0]["edad"]);
+        $emp->setTipo($arrUss[0]["tipoPersona"]);
+        $this->empleado=$emp;
+    }
+    
+    function loadEm($arrEmp){
+        $this->empleado->setComision($arrEmp[0]["comision"]);
+        $this->empleado->setIdEmpleado($arrEmp[0]["id_empleado"]);
+    }
+    
+    function setPerson($empled) {
+        $this->empleado = $empled;
+    }
+
+    
     public function gestionCatalogo(){
         
     }

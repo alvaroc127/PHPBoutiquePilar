@@ -43,6 +43,9 @@ class ControladorUsuario{
         }
     }
     
+    public function getUser(){
+        return $this->usuario;
+    }
     public function isUser(){
         if(!is_null($this->usuario)){
             return TRUE;

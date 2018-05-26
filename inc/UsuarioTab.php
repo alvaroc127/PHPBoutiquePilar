@@ -8,7 +8,8 @@ include_once("inc/Usuario.php");
  */
 class UsuarioTab{
     
-    const SQL_CONSULT="select email,id_persona from persona where email=? and id_persona=?;";
+    const SQL_CONSULTPER="select nombre_razonsocial,fechaNacimiento,edad,tipoPersona,email,id_persona from persona where email=? and id_persona=?;";
+    const SQL_CONSULTEMP="select * from empleado where id_persona=?;";
     private $usuario;
     private $arrUsu;
     
@@ -22,7 +23,7 @@ class UsuarioTab{
     function SQL_consultusu($email,$key){
         $cont=new conecxionBD();
         $mysql=$cont->conectarBD();
-        $result=$mysql->prepare(self::SQL_CONSULT);
+        $result=$mysql->prepare(self::SQL_CONSULTPER);
         if(!$result){
             echo $mysql->errno."error en".$mysql->error;
         }else{
@@ -33,7 +34,17 @@ class UsuarioTab{
                 if(!empty($this->arrUsu)){
                 $usu->setPass($this->arrUsu[0]["id_persona"]);
                 $usu->setEmail($this->arrUsu[0]["email"]);
-                $this->usuario=$usu;
+                $usu->loadPerson($this->arrUsu);
+                $result=$mysql->prepare(self::SQL_CONSULTEMP);
+                if(!$result){
+                    echo $mysql->errno."error en".$mysql->error;
+                    }else{
+                    $result->bind_param('i',$key);
+                    $result->execute();
+                    $this->arrUsu=$result->get_result()->fetch_all(MYSQLI_ASSOC);
+                    $usu->loadEm($this->arrUsu);
+                    $this->usuario=$usu;
+                    }
                 }
             }else{
                 echo $result->errno."error en".$result->error;

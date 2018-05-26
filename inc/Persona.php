@@ -13,6 +13,7 @@ abstract class   Persona {
     private $dateBirthday;
     private $tipo;
     private $tel;
+    private $edad;
     
     
     
@@ -69,7 +70,15 @@ abstract class   Persona {
         $this->tel = $tel;
     }
     
-     abstract function calDeberes($deberes);
+    function getEdad() {
+        return $this->edad;
+    }
+
+    function setEdad($edad) {
+        $this->edad = $edad;
+    }
+
+         abstract function calDeberes($deberes);
 
 
 

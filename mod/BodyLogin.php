@@ -7,6 +7,7 @@ if(!isset($_SESSION["logeado"])){
         if($cont->isUser()&& isset($_SESSION["mar"])){
             $_SESSION["mar"]=true;
             $_SESSION["logeado"]=true;
+            $_SESSION["usempl"]=$cont->getUser();
             $_SESSION["user"]=$cont->getemail();
             $_SESSION["pass"]=$cont->getPass();
             session_regenerate_id(true);
