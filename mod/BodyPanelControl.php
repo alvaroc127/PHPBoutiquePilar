@@ -45,7 +45,7 @@ $contU->setUser($_SESSION["user"], $_SESSION["pass"]);
                 </div>
                 <footer class="card-footer text-muted">
                     <!--un boton y otras cositas.-->
-                    <a href="" class="btn btn-primary">crearProducto</a>
+                    <a href="CrearProducto.html" class="btn btn-primary">crearProducto</a>
                     <p class="card-text"><small class="text-muted">peque textp</small></p>
                 </footer>
             </div>
